@@ -8,43 +8,35 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: Arial, Helvetica, sans-serif; background:#f4f4f4; font-size:13px; color:#333; }
 .top-red { background:#DB0011; height:4px; }
-.header {
-  background:#fff; border-bottom:1px solid #ddd;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:0 20px; height:48px;
-}
+.header { background:#fff; border-bottom:1px solid #ddd; display:flex; align-items:center; justify-content:space-between; padding:0 20px; height:48px; }
 .hsbc-logo { font-size:26px; font-weight:900; color:#DB0011; letter-spacing:-1px; }
 .header-right { font-size:11px; color:#555; display:flex; align-items:center; gap:10px; }
 .header-right a { color:#DB0011; text-decoration:none; }
 .top-nav { background:#1a1a1a; display:flex; padding:0 20px; height:36px; }
-.top-nav a {
-  color:#bbb; text-decoration:none; font-size:12px;
-  padding:0 13px; height:36px; display:flex; align-items:center;
-  border-bottom:2px solid transparent;
-}
+.top-nav a { color:#bbb; text-decoration:none; font-size:12px; padding:0 13px; height:36px; display:flex; align-items:center; border-bottom:2px solid transparent; }
 .top-nav a:hover { color:#fff; }
 .top-nav a.active { color:#fff; border-bottom:2px solid #DB0011; }
-.layout { display:flex; min-height:calc(100vh - 92px); }
+.layout { display:flex; min-height:calc(100vh - 88px); }
 .sidebar { width:175px; background:#2b2b3b; color:#fff; flex-shrink:0; }
-.sidebar-brand { background:#222236; padding:13px 14px 10px; border-bottom:1px solid rgba(255,255,255,0.06); }
+.sidebar-brand { background:#222236; padding:13px 14px 10px; border-bottom:1px solid rgba(255,255,255,0.06); cursor:pointer; display:flex; align-items:center; justify-content:space-between; }
 .sidebar-brand-name { font-size:12px; font-weight:700; }
 .sidebar-brand-sub { font-size:9.5px; color:#888; text-transform:uppercase; letter-spacing:0.8px; margin-top:1px; }
 .sidebar-ibans { padding:9px 12px; border-bottom:1px solid rgba(255,255,255,0.06); }
 .ibans-lbl { font-size:9.5px; text-transform:uppercase; letter-spacing:0.8px; color:#888; margin-bottom:6px; }
 .iban-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:5px; }
 .iban-txt { font-size:10px; color:#bfc5d4; font-family:'Courier New',monospace; line-height:1.5; }
-.copy-btn { background:rgba(255,255,255,0.08); border:none; color:#888; width:18px; height:18px; border-radius:2px; cursor:pointer; font-size:10px; }
+.copy-btn { background:rgba(255,255,255,0.08); border:none; color:#888; width:18px; height:18px; border-radius:2px; cursor:pointer; font-size:9px; }
 .copy-btn:hover { background:rgba(219,0,17,0.35); color:#fff; }
 .sidebar-link { display:block; padding:9px 14px; color:#bfc5d4; font-size:12px; text-decoration:none; border-left:3px solid transparent; }
 .sidebar-link:hover { background:rgba(255,255,255,0.04); color:#fff; }
 .sidebar-link.active { background:rgba(219,0,17,0.1); color:#fff; border-left:3px solid #DB0011; }
-.main { flex:1; }
+.main { flex:1; overflow:auto; }
 .account-bar { background:#fff; border-bottom:1px solid #ddd; padding:11px 22px; display:flex; justify-content:space-between; align-items:center; }
 .acct-label { font-size:10px; color:#999; text-transform:uppercase; letter-spacing:0.7px; }
 .acct-name { font-size:16px; font-weight:700; color:#111; margin-top:1px; }
 .bal-label { font-size:10px; color:#999; text-transform:uppercase; letter-spacing:0.7px; text-align:right; }
 .bal-amount { font-size:20px; font-weight:700; color:#111; letter-spacing:-0.3px; }
-.bal-rep { font-size:11px; color:#888; margin-top:1px; }
+.bal-rep { font-size:11px; color:#888; margin-top:1px; text-align:right; }
 .page { padding:18px 22px; }
 .page-title { font-size:16px; font-weight:400; color:#111; margin-bottom:16px; }
 .transfer-row { display:flex; gap:10px; margin-bottom:20px; }
@@ -63,11 +55,7 @@ body { font-family: Arial, Helvetica, sans-serif; background:#f4f4f4; font-size:
 .fg { display:flex; flex-direction:column; gap:4px; }
 .fl { font-size:11px; font-weight:700; color:#444; }
 .fl sup { color:#DB0011; }
-.fi, .fs {
-  border:1px solid #ccc; padding:7px 9px; font-size:12.5px; color:#333;
-  outline:none; background:#fff; width:100%; border-radius:0;
-  font-family:Arial,Helvetica,sans-serif; -webkit-appearance:none;
-}
+.fi, .fs { border:1px solid #ccc; padding:7px 9px; font-size:12.5px; color:#333; outline:none; background:#fff; width:100%; border-radius:0; font-family:Arial,Helvetica,sans-serif; -webkit-appearance:none; }
 .fi:focus, .fs:focus { border-color:#DB0011; }
 .fi::placeholder { color:#bbb; }
 .btn { background:#DB0011; color:#fff; border:none; padding:10px 0; font-size:13px; font-weight:700; cursor:pointer; width:100%; font-family:Arial,Helvetica,sans-serif; }
@@ -110,23 +98,24 @@ body { font-family: Arial, Helvetica, sans-serif; background:#f4f4f4; font-size:
 </div>
 
 <div class="layout">
+
   <div class="sidebar">
-    <div class="sidebar-brand" onclick="toggleIbans()" style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;">
+    <div class="sidebar-brand" onclick="toggleIbans()">
       <div>
         <div class="sidebar-brand-name">KRICKETS LLC</div>
         <div class="sidebar-brand-sub">Banking</div>
       </div>
-      <span id="iban-arrow" style="color:#aaa;font-size:11px;margin-left:6px;transition:transform 0.2s;display:inline-block;transform:rotate(0deg);">&#9650;</span>
+      <span id="iban-arrow" style="color:#aaa;font-size:11px;transition:transform 0.2s;display:inline-block;">&#9650;</span>
     </div>
     <div class="sidebar-ibans" id="ibans-panel">
       <div class="ibans-lbl">Your IBANs</div>
       <div class="iban-row">
         <span class="iban-txt">DE18 3003 0880 0236<br>7843 71</span>
-        <button class="copy-btn" onclick="event.stopPropagation();navigator.clipboard.writeText('DE18300308800236784371');this.textContent='v';setTimeout(()=>this.textContent='[]',1300)">[]</button>
+        <button class="copy-btn" onclick="event.stopPropagation()">&#10697;</button>
       </div>
       <div class="iban-row" style="margin-top:3px;">
         <span class="iban-txt">DE42 **** **** ****<br>**** 038</span>
-        <button class="copy-btn" onclick="event.stopPropagation()">[]</button>
+        <button class="copy-btn" onclick="event.stopPropagation()">&#10697;</button>
       </div>
     </div>
     <div style="padding-top:4px;">
@@ -139,6 +128,7 @@ body { font-family: Arial, Helvetica, sans-serif; background:#f4f4f4; font-size:
   </div>
 
   <div class="main">
+
     <div class="account-bar">
       <div>
         <div class="acct-label">KRICKETS LLC - EUR</div>
@@ -146,7 +136,7 @@ body { font-family: Arial, Helvetica, sans-serif; background:#f4f4f4; font-size:
       </div>
       <div>
         <div class="bal-label">Available Balance</div>
-        <div class="bal-amount">USD 4,872,301.50</div>
+        <div class="bal-amount">EUR 9,314,639,689.76</div>
         <div class="bal-rep">VISHAL K.</div>
       </div>
     </div>
@@ -158,23 +148,22 @@ body { font-family: Arial, Helvetica, sans-serif; background:#f4f4f4; font-size:
         <div class="t-card" onclick="document.querySelectorAll('.t-card').forEach(c=>c.classList.remove('sel'));this.classList.add('sel')">
           <div class="t-card-title">HSBC Internal</div>
           <div class="t-card-desc">Transfer funds to HSBC accounts</div>
-          <span class="t-arrow">›</span>
+          <span class="t-arrow">&#8250;</span>
         </div>
         <div class="t-card" onclick="document.querySelectorAll('.t-card').forEach(c=>c.classList.remove('sel'));this.classList.add('sel')">
           <div class="t-card-title">Domestic Transfer</div>
           <div class="t-card-desc">Transfer to other banks within the US</div>
-          <span class="t-arrow">›</span>
+          <span class="t-arrow">&#8250;</span>
         </div>
         <div class="t-card sel" onclick="document.querySelectorAll('.t-card').forEach(c=>c.classList.remove('sel'));this.classList.add('sel')">
           <div class="t-card-title">International Transfer</div>
           <div class="t-card-desc">Send funds globally in multiple currencies</div>
-          <span class="t-arrow">›</span>
+          <span class="t-arrow">&#8250;</span>
         </div>
       </div>
 
       <div class="form-box">
         <div class="form-title">International Transfer</div>
-
         <div class="frow ca">
           <div class="fg">
             <label class="fl">Amount <sup>*</sup></label>
@@ -183,33 +172,31 @@ body { font-family: Arial, Helvetica, sans-serif; background:#f4f4f4; font-size:
           <div class="fg">
             <label class="fl">Currency <sup>*</sup></label>
             <select class="fs">
-              <option>USD - Dollar</option>
               <option>EUR - Euro</option>
-              <option>MXN - Peso</option>
+              <option>USD - Dollar</option>
               <option>GBP - Pound</option>
+              <option>CHF - Franc</option>
             </select>
           </div>
         </div>
-
         <div class="frow c1">
           <div class="fg">
             <label class="fl">Beneficiary IBAN / Account Number <sup>*</sup></label>
             <input class="fi" type="text" placeholder="Enter IBAN or account number">
           </div>
         </div>
-
         <div class="frow c2">
           <div class="fg">
             <label class="fl">Recipient Bank Name <sup>*</sup></label>
             <select class="fs" id="bsel">
               <option value="">Select bank</option>
-              <option value="BNMXMXMM">Banamex</option>
-              <option value="BCMRMXMM">BBVA Mexico</option>
-              <option value="BMSXMXMM">Santander MX</option>
-              <option value="MENOMXMT">Banorte</option>
+              <option value="SSKMDEMMXXX">Sparkasse</option>
+              <option value="COBADEFFXXX">Commerzbank</option>
+              <option value="DEUTDEDBXXX">Deutsche Bank</option>
+              <option value="DRESDEFFXXX">Dresdner Bank</option>
               <option value="CHASUS33">JPMorgan Chase</option>
               <option value="BOFAUS3N">Bank of America</option>
-              <option value="DEUTDEDB">Deutsche Bank</option>
+              <option value="BNPAFRPPXXX">BNP Paribas</option>
             </select>
           </div>
           <div class="fg">
@@ -217,23 +204,21 @@ body { font-family: Arial, Helvetica, sans-serif; background:#f4f4f4; font-size:
             <input class="fi" id="swft" type="text" placeholder="Autofilled or enter SWIFT/BIC">
           </div>
         </div>
-
         <div class="frow c1" style="margin-bottom:14px;">
           <div class="fg">
             <label class="fl">Reference (Optional)</label>
             <input class="fi" type="text" placeholder="Enter payment reference">
           </div>
         </div>
-
         <button class="btn">Continue to Payment</button>
       </div>
 
       <div class="txn-box">
         <div class="txn-hdr">
           <span class="txn-hdr-title">Recent Transactions</span>
-          <a href="#" class="txn-view">View All ›</a>
+          <a href="#" class="txn-view">View All &#8250;</a>
         </div>
-                <div class="txn-row">
+        <div class="txn-row">
           <div><div class="txn-name">COCKPITSONIC GMBH</div><div class="txn-date">06 Apr 2026</div></div>
           <div><div class="txn-amt">EUR 2,027,600.00</div></div>
         </div>
@@ -254,6 +239,8 @@ body { font-family: Arial, Helvetica, sans-serif; background:#f4f4f4; font-size:
           <div><div class="txn-amt">EUR 2,210,000.00</div></div>
         </div>
       </div>
+
+    </div>
   </div>
 </div>
 
@@ -262,13 +249,13 @@ body { font-family: Arial, Helvetica, sans-serif; background:#f4f4f4; font-size:
 </div>
 
 <script>
-let ibansOpen=true;
-function toggleIbans(){
-  ibansOpen=!ibansOpen;
-  document.getElementById("ibans-panel").style.display=ibansOpen?"block":"none";
-  document.getElementById("iban-arrow").style.transform=ibansOpen?"rotate(0deg)":"rotate(180deg)";
+let ibansOpen = true;
+function toggleIbans() {
+  ibansOpen = !ibansOpen;
+  document.getElementById('ibans-panel').style.display = ibansOpen ? 'block' : 'none';
+  document.getElementById('iban-arrow').style.transform = ibansOpen ? 'rotate(0deg)' : 'rotate(180deg)';
 }
-document.getElementById("bsel").addEventListener('change',function(){
+document.getElementById('bsel').addEventListener('change', function() {
   document.getElementById('swft').value = this.value;
 });
 </script>
